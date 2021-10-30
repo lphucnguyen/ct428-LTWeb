@@ -10,55 +10,60 @@
     </div>
     <!-- Content Row -->
     <div class="row">
+        <?php
+            $sql = "SELECT * FROM dathang WHERE SoDonDH ='" .$_GET["id"]. "'";
+            $result = mysqli_query($db, $sql);
+            $result = mysqli_fetch_assoc($result);
+        ?>
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Don Hang</h6>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="./modules/transaction/process.php" method="POST">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">So Don Dat Hang:</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" value="<?=$result["first_name"]?>">
+                                <input type="text" readonly class="form-control" value="<?=$result["SoDonDH"]?>" name="SoDonDH">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Ma So Khach Hang:</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" value="<?=$result["last_name"]?>">
+                                <input type="text" readonly class="form-control" value="<?=$result["MSKH"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Ma So Nhan Vien:</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" value="<?=$result["address"]?>">
+                                <input type="text" readonly class="form-control" value="<?=$_SESSION["nhanvien"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Ngay Dat Hang:</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" value="<?=$result["email"]?>">
+                                <input type="text" readonly class="form-control" value="<?=$result["NgayDH"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Ngay Giao Hang:</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" value="<?=$result["phone"]?>">
+                                <input type="text" readonly class="form-control" value="<?=$result["NgayGH"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Dia Chi:</label>
                             <div class="col-sm-10">
-                                <input type="text" readonly class="form-control" value="<?=$result["payment_name"]?>">
+                                <input type="text" readonly class="form-control" value="<?=$result["DiaChi"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Trang Thai Don Hang:</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="TrangThaiDH">
-                                    <option value="Chua Xac Nhan" <?=($result["status"] == 0) ? "selected" : ""?>>Chua Xac Nhan</option>
-                                    <option value="Da Xac Nhan" <?=($result["status"] == 1) ? "selected" : ""?>>Da Xac Nhan</option>
+                                    <option value="Chua Xac Nhan" <?=($result["TrangThaiDH"] == "Chua Xac Nhan") ? "selected" : ""?>>Chua Xac Nhan</option>
+                                    <option value="Da Xac Nhan" <?=($result["TrangThaiDH"] == "Da Xac Nhan") ? "selected" : ""?>>Da Xac Nhan</option>
                                 </select>
                             </div>
                         </div>
@@ -68,17 +73,6 @@
             </div>        
         </div>
         <div class="col-12">
-            <?php
-                $sql = "SELECT * FROM product_size_color
-                        INNER JOIN
-                            (SELECT transaction_id, product_id, product_name, image_list, new_price, quantity FROM orders
-                        INNER JOIN product
-                        ON product.id = orders.product_id) AS orders
-                        ON product_size_color.transaction_id = orders.transaction_id AND product_size_color.product_id = orders.product_id
-                        WHERE product_size_color.transaction_id = '$transaction_id'
-                ";
-                $result = mysqli_query($db, $sql);
-            ?>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Product</h6>

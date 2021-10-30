@@ -19,30 +19,30 @@ if(!defined("ADMIN")){
                 <h6 class="m-0 font-weight-bold text-primary">Hang Hoa</h6>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="./modules/product/process.php" method="POST">
                     <div class="form-group">
                         <label>MSHH</label>
-                        <input type="text" name="MSHH" class="form-control" value="<?=$row["SoFax"]?>" />
+                        <input type="text" name="MSHH" class="form-control" value="" />
                     </div>
                     <div class="form-group">
                         <label>Ten Hang Hoa</label>
-                        <input type="text" name="TenHH" name="password" class="form-control" />
+                        <input type="text" name="TenHH" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Quy Cach</label>
-                        <input type="text" name="QuyCach" name="password" class="form-control" />
+                        <input type="text" name="QuyCach" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Gia</label>
-                        <input type="text" name="Gia" name="password" class="form-control" />
+                        <input type="text" name="Gia" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>So Luong Hang</label>
-                        <input type="text" name="SoLuongHang" name="password" class="form-control" />
+                        <input type="text" name="SoLuongHang" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Loai Hang Hoa</label>
-                        <select class="form-control">
+                        <select class="form-control" name="maloai">
                             <?php
                                 $sql = "SELECT * FROM LOAIHANGHOA";
                                 $result = mysqli_query($db, $sql);
@@ -55,7 +55,11 @@ if(!defined("ADMIN")){
                             ?>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Them Hang</button>
+                    <div class="form-group">
+                        <label>File Hinh</label>
+                        <input class="form-control" type="file" id="hinhanh" name="hinhanh" multiple>
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="themhang">Them Hang</button>
                 </form>
                 <div class="table-responsive">
                 <table class="table mt-4 table-bordered table-data" data-get="orders">

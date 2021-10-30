@@ -19,16 +19,16 @@ if(!defined("ADMIN")){
                 <h6 class="m-0 font-weight-bold text-primary">Loai Hang</h6>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="./modules/category/process.php" method="POST">
                     <div class="form-group">
                         <label>Ma Loai Hang</label>
-                        <input type="text" name="MaLoaiHang" class="form-control" value="<?=$row["SoFax"]?>" />
+                        <input type="text" name="MaLoaiHang" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label>Ten Loai Hang</label>
                         <input type="text" name="TenLoaiHang" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-primary">Them Loai Hang</button>
+                    <button type="submit" class="btn btn-primary" name="themloaihang">Them Loai Hang</button>
                 </form>
                 <div class="table-responsive">
                 <table class="table mt-4 table-bordered table-data" data-get="orders">
@@ -53,7 +53,7 @@ if(!defined("ADMIN")){
                                     <a href="index.php?module=category&action=edit&id=<?=$row["MaLoaiHang"]?>" class="btn btn-primary">
                                         Chinh Sua
                                     </a>
-                                    <a href="" class="btn btn-danger">
+                                    <a href="./modules/category/process.php?action=xoa&id=<?=$row["MaLoaiHang"]?>" class="btn btn-danger">
                                         Xoa
                                     </a>
                                 </td>

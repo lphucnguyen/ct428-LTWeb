@@ -19,16 +19,21 @@ if(!defined("ADMIN")){
                 <h6 class="m-0 font-weight-bold text-primary">Loai Hang</h6>
             </div>
             <div class="card-body">
-                <form action="" method="POST">
+                <?php 
+                    $sql = "SELECT * FROM loaihanghoa WHERE MaLoaiHang = '".$_GET['id']."'";
+                    $result = mysqli_query($db, $sql);
+                    $row = mysqli_fetch_assoc($result)
+                ?>
+                <form action="./modules/category/process.php" method="POST">
                     <div class="form-group">
                         <label>Ma Loai Hang</label>
-                        <input type="text" name="MaLoaiHang" class="form-control" value="" />
+                        <input type="text" name="MaLoaiHang" class="form-control" value="<?=$row["MaLoaiHang"]?>" />
                     </div>
                     <div class="form-group">
                         <label>Ten Loai Hang</label>
-                        <input type="text" name="TenLoaiHang" class="form-control" value="" />
+                        <input type="text" name="TenLoaiHang" class="form-control" value="<?=$row["TenLoaiHang"]?>" />
                     </div>
-                    <button type="submit" class="btn btn-primary">Sua Loai Hang</button>
+                    <button type="submit" class="btn btn-primary" name="sualoaihang">Sua Loai Hang</button>
                 </form>
             </div>
             </div>
