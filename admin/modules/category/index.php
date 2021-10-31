@@ -1,7 +1,13 @@
 <?php
-if(!defined("ADMIN")){
-    exit();
-}
+    // session_start();
+    if(!defined("ADMIN")){
+        exit();
+    }
+    $s = "aaaa";
+    if(isset($_SESSION['error'])){
+        echo '<script type="text/javascript">alert("' . $_SESSION['error']. '")</script>';
+        unset($_SESSION['error']);
+    }
 ?>
 
 <div class="container-fluid">

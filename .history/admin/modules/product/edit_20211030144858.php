@@ -32,19 +32,19 @@ if(!defined("ADMIN")){
                     </div>
                     <div class="form-group">
                         <label>Ten Hang Hoa</label>
-                        <input type="text" name="TenHH" class="form-control"  value="<?=$result1["TenHH"]?>" />
+                        <input type="text" name="TenHH" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Quy Cach</label>
-                        <input type="text" name="QuyCach" class="form-control"  value="<?=$result1["QuyCach"]?>" />
+                        <input type="text" name="QuyCach" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Gia</label>
-                        <input type="text" name="Gia" class="form-control"  value="<?=$result1["Gia"]?>" />
+                        <input type="text" name="Gia" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>So Luong Hang</label>
-                        <input type="text" name="SoLuongHang" class="form-control"  value="<?=$result1["SoLuongHang"]?>" />
+                        <input type="text" name="SoLuongHang" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Loai Hang Hoa</label>
@@ -60,10 +60,6 @@ if(!defined("ADMIN")){
                                 endwhile;
                             ?>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label>File Hinh</label>
-                        <input class="form-control" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
                     </div>
                     <button type="submit" class="btn btn-primary" name="suahang">Sua Hang</button>
                 </form>

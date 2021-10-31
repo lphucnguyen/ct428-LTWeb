@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include("../../../core/init.php");
     $sql = '';
     if(isset($_POST['themloaihang'])){
@@ -7,6 +6,7 @@
         $tenloaihang = $_POST['TenLoaiHang'];
         $sql = "INSERT INTO loaihanghoa(MaLoaiHang,TenLoaiHang) VALUE('".$maloaihang."','".$tenloaihang."')";
         header('Location: ' . $_SERVER['HTTP_REFERER']);
+
     }
     if(isset($_GET['action']) && ($_GET['action']=='xoa')){
         $maloai = $_GET['id']; 
@@ -20,7 +20,7 @@
         header('Location:../../index.php?module=category');
     }
     $result = mysqli_query($db, $sql);
-    if(!$result){
-        $_SESSION['error'] = 'Mã Loại Đã tồn tại';
+    if($result){
+        
     }
 ?>

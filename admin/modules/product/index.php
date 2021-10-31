@@ -2,6 +2,7 @@
 if(!defined("ADMIN")){
     exit();
 }
+
 ?>
 
 <div class="container-fluid">
@@ -19,7 +20,7 @@ if(!defined("ADMIN")){
                 <h6 class="m-0 font-weight-bold text-primary">Hang Hoa</h6>
             </div>
             <div class="card-body">
-                <form action="./modules/product/process.php" method="POST">
+                <form action="./modules/product/process.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>MSHH</label>
                         <input type="text" name="MSHH" class="form-control" value="" />
@@ -57,7 +58,7 @@ if(!defined("ADMIN")){
                     </div>
                     <div class="form-group">
                         <label>File Hinh</label>
-                        <input class="form-control" type="file" id="hinhanh" name="hinhanh" multiple>
+                        <input class="form-control" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
                     </div>
                     <button type="submit" class="btn btn-primary" name="themhang">Them Hang</button>
                 </form>
@@ -86,7 +87,7 @@ if(!defined("ADMIN")){
                                     <a href="index.php?module=product&action=edit&id=<?=$row["MSHH"]?>" class="btn btn-primary">
                                         Chinh Sua
                                     </a>
-                                    <a href="" class="btn btn-danger">
+                                    <a href="./modules/product/process.php?action=xoa&id=<?=$row["MSHH"]?>" class="btn btn-danger">
                                         Xoa
                                     </a>
                                 </td>

@@ -2,7 +2,6 @@
 if(!defined("ADMIN")){
     exit();
 }
-
 ?>
 
 <div class="container-fluid">
@@ -14,11 +13,6 @@ if(!defined("ADMIN")){
 
 <!-- Content Row -->
 <div class="row">
-        <?php
-            $sql = "SELECT * FROM hanghoa WHERE MSHH ='" .$_GET["id"]. "'";
-            $result = mysqli_query($db, $sql);
-            $result1 = mysqli_fetch_assoc($result);
-        ?>
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -28,23 +22,23 @@ if(!defined("ADMIN")){
                 <form action="./modules/product/process.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>MSHH</label>
-                        <input type="text" name="MSHH" class="form-control" value="<?=$result1["MSHH"]?>" />
+                        <input type="text" name="MSHH" class="form-control" value="<?=$row["SoFax"]?>" />
                     </div>
                     <div class="form-group">
                         <label>Ten Hang Hoa</label>
-                        <input type="text" name="TenHH" class="form-control"  value="<?=$result1["TenHH"]?>" />
+                        <input type="text" name="TenHH" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Quy Cach</label>
-                        <input type="text" name="QuyCach" class="form-control"  value="<?=$result1["QuyCach"]?>" />
+                        <input type="text" name="QuyCach" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Gia</label>
-                        <input type="text" name="Gia" class="form-control"  value="<?=$result1["Gia"]?>" />
+                        <input type="text" name="Gia" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>So Luong Hang</label>
-                        <input type="text" name="SoLuongHang" class="form-control"  value="<?=$result1["SoLuongHang"]?>" />
+                        <input type="text" name="SoLuongHang" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Loai Hang Hoa</label>
@@ -55,15 +49,11 @@ if(!defined("ADMIN")){
 
                                 while($row = mysqli_fetch_assoc($result)):
                             ?>  
-                                <option value="<?=$row["MaLoaiHang"]?>" <?=($row["MaLoaiHang"] == $result1["MaLoaiHang"]) ? "selected" : ""?>><?=$row["TenLoaiHang"]?></option>
+                                <option value="<?=$row["MaLoaiHang"]?>"><?=$row["TenLoaiHang"]?></option>
                             <?php
                                 endwhile;
                             ?>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label>File Hinh</label>
-                        <input class="form-control" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
                     </div>
                     <button type="submit" class="btn btn-primary" name="suahang">Sua Hang</button>
                 </form>

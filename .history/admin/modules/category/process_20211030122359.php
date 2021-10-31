@@ -20,7 +20,7 @@
         header('Location:../../index.php?module=category');
     }
     $result = mysqli_query($db, $sql);
-    if(!$result){
+    if($result){
         $_SESSION['error'] = 'Mã Loại Đã tồn tại';
     }
 ?>

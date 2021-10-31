@@ -23,8 +23,7 @@
             mysqli_query($db, $sql1);
         }
         $sql = "INSERT INTO hanghoa VALUE('".$mshh."','".$tensach."','" .$quycach. "','".$gia."','".$soluong."','" .$maloai. "')";
-        $result = mysqli_query($db, $sql);
-
+        mysqli_query($db, $sql);
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
      if(isset($_GET['action'])){

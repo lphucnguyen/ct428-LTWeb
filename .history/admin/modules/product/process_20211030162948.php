@@ -24,7 +24,11 @@
         }
         $sql = "INSERT INTO hanghoa VALUE('".$mshh."','".$tensach."','" .$quycach. "','".$gia."','".$soluong."','" .$maloai. "')";
         $result = mysqli_query($db, $sql);
-
+        if(!$result){
+            $_SESSION['error'] = 'Mã Loại Đã tồn tại';
+        }
+        echo $_SESSION['error'];
+        echo $result;
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
      if(isset($_GET['action'])){

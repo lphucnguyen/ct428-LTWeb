@@ -18,13 +18,12 @@
             $name[] = $file;
             $path_file = $path . $file;
             move_uploaded_file($tenhinhanh_tmp,$path_file);
-            $i++;          
+            $i++;
+            $sql = "INSERT INTO hanghoa VALUE('".$mshh."','".$tensach."','" .$quycach. "','".$gia."','".$soluong."','" .$maloai. "')";
             $sql1 = "INSERT INTO hinhhanghoa(MSHH,tenhinh,mahinh) VALUE('".$mshh."','".$file."','".$file."')";
+            mysqli_query($db, $sql);
             mysqli_query($db, $sql1);
         }
-        $sql = "INSERT INTO hanghoa VALUE('".$mshh."','".$tensach."','" .$quycach. "','".$gia."','".$soluong."','" .$maloai. "')";
-        $result = mysqli_query($db, $sql);
-
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
      if(isset($_GET['action'])){
@@ -52,7 +51,7 @@
         mysqli_query($db, $sql);
 
         if(empty($_FILES['hinhanh']['size'][0])){
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            echo 'ko có';
         }
         else{
              $sql2 = "SELECT * FROM hinhhanghoa WHERE MSHH = '".$mshh."'";
@@ -71,7 +70,6 @@
                 $sql3 = "INSERT INTO hinhhanghoa(MSHH,tenhinh,mahinh) VALUE('".$mshh."','".$file."','".$file."')";
                 mysqli_query($db, $sql3);
             }
-            header('Location:../../index.php?module=product');
         }
     }
 ?>
