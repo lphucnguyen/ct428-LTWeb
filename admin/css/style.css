@@ -1,0 +1,17 @@
+#input-hinh {
+    display: none;
+}
+
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-preview img {
+    flex-grow: 1;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    margin: 0px 10px 10px 0px;
+}

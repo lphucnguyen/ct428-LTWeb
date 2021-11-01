@@ -58,7 +58,12 @@ if(!defined("ADMIN")){
                     </div>
                     <div class="form-group">
                         <label>File Hinh</label>
-                        <input class="form-control" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
+                        <div class="input-group mb-3 image-select">
+                            <label for="input-hinh" class="btn btn-success w-100">Chon Hinh</label>
+                            <input class="form-control" onchange="changeImage(this)" id="input-hinh" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
+                            <div class="image-preview">
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary" name="themhang">Them Hang</button>
                 </form>
@@ -103,3 +108,18 @@ if(!defined("ADMIN")){
         </div>        
     </div>
 </div>
+
+<script>
+    const imagePreview = document.querySelector(".image-preview");
+
+    const changeImage = (e) => {
+        let files = e.files;
+        let filesHTML = '';
+
+        Array.from(files).forEach(file => {
+            filesHTML += '<img src="' + URL.createObjectURL(file) + '" />';
+        });
+
+        imagePreview.innerHTML = filesHTML;
+    }
+</script>

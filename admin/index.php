@@ -21,6 +21,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
 </head>
 
@@ -28,7 +29,7 @@
   session_start();
   include("../core/init.php");
 
-  if(!isset($_SESSION["nhanvien"])) header("location: admin/login.php");
+  if(!isset($_SESSION["nhanvien"])) header("location: /admin/login.php");
 
   define("ADMIN", true);
 
