@@ -33,12 +33,20 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-          <div class="col-lg-7">
+          <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+          <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Dang Ky</h1>
+                <h1 class="h4 text-gray-900 mb-4">Dang Ky Khach Hang</h1>
               </div>
+              <?php
+                if(isset($_SESSION["error"])):
+              ?>
+              <div class="text-danger mt-3"><?=$_SESSION["error"]?></div>
+              <?php
+                endif;
+                unset($_SESSION["error"]);
+              ?>
               <form class="user" method="GET" action="includes/process.php">
                 <input type="hidden" value="register" name="action">
                 <div class="form-group">

@@ -1,6 +1,6 @@
 <?php
     include("../../../core/init.php");
-    $path = '../../../image/';
+    $path = '../../../uploads/';
     if(isset($_POST['themhang'])){
         $mshh=$_POST['MSHH'];
 	    $tensach=$_POST['TenHH'];
@@ -8,7 +8,6 @@
         $maloai=$_POST['maloai'];
         $gia=$_POST['Gia'];
         $soluong=$_POST['SoLuongHang'];
-
         
         $i = 0;
         $name = array();

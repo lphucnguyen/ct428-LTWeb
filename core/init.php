@@ -1,8 +1,8 @@
 <?php
     // header("Content-type: text/html; charset=utf-8");
     $servername = "localhost";
-    $username = "gianghoa";
-    $password = "gianghoa123";
+    $username = "root";
+    $password = "Nguyen123@";
     $dbname = "quanlydathang";
     // define('DB_SERVER', '127.0.0.1');
 	// define('DB_USERNAME', 'gianghoa');

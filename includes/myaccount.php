@@ -23,6 +23,14 @@
 <main>
     <div class="container">
         <h3 class="mt-3 text-center">Thong tin tai khoan</h3>
+        <?php
+            if(isset($_SESSION["error"])):
+        ?>
+        <div class="text-danger mt-3"><?=$_SESSION["error"]?></div>
+        <?php
+            endif;
+            unset($_SESSION["error"]);
+        ?>
         <form method="GET" action="includes/process.php">
             <input type="hidden" name="action" value="updateAccount">
             <div class="form-group">
@@ -43,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="text" name="password" class="form-control" value="<?=$row["Pass"]?>"/>
+                <input type="password" name="password" class="form-control" value="<?=$row["Pass"]?>"/>
             </div>
             <button type="submit" class="btn btn-primary">Luu thay doi</button>
         </form>
