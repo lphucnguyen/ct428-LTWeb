@@ -1,4 +1,5 @@
 <?php
+    if(session_id()==="")
     session_start();
 
     if(!isset($_SESSION["account"])) header("location: login.php");
@@ -22,10 +23,11 @@
 <main>
     <div class="container">
         <h3 class="mt-3 text-center">Thong tin tai khoan</h3>
-        <form method="POST">
+        <form method="GET" action="includes/process.php">
+            <input type="hidden" name="action" value="updateAccount">
             <div class="form-group">
                 <label>Ho Ten Khach Hang</label>
-                <input type="text" class="form-control" value="<?=$row["HoTenKH"]?>" />
+                <input type="text" class="form-control" name="hoten" value="<?=$row["HoTenKH"]?>" />
             </div>
             <div class="form-group">
                 <label>Ten Cong Ty</label>
@@ -41,21 +43,41 @@
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" />
+                <input type="text" name="password" class="form-control" value="<?=$row["Pass"]?>"/>
             </div>
             <button type="submit" class="btn btn-primary">Luu thay doi</button>
         </form>
-        <form method="POST" class="mt-3">
-            <div class="form-group">
-                <label>Dia Chi 1: </label>
-                <input type="text" name="diachi2" class="form-control" value="" />
-            </div>
-            <div class="form-group">
-                <label>Dia Chi 2: </label>
-                <input type="text" name="diachi1" class="form-control" value="" />
-            </div>
-            <button type="submit" class="btn btn-primary">Luu dia chi</button>
-        </form>
+        <form method="GET" class="mt-3" action="includes/process.php">
+        <?php
+         $sql = "SELECT * FROM DIACHIKH WHERE MSKH='" . $_SESSION["account"] . "'";
+         $result = mysqli_query($db, $sql);
+         if(mysqli_num_rows($result)<=0){
+             echo '<input type="hidden" name="action" value="updateAddresses">
+             <div class="form-group">
+                 <label>Dia Chi 1: </label>
+                 <input type="text" name="diachi1" class="form-control" value="" />
+             </div>
+             <div class="form-group">
+                 <label>Dia Chi 2: </label>
+                 <input type="text" name="diachi2" class="form-control" value="" />
+             </div>
+             <button type="submit" class="btn btn-primary">Luu dia chi</button>
+         </form>';
+         }else{
+             echo '<input type="hidden" name="action" value="updateAddresses">';
+             $count=0;
+         while($row = mysqli_fetch_assoc($result)){
+             $count+=1;
+         echo '
+         <div class="form-group">
+             <label>Dia Chi '.$count.': </label>
+             <input type="text" name="diachi'.$count.'" class="form-control" value="'.$row["DiaChi"].'" />
+         </div>';
+        }
+         echo '<button type="submit" class="btn btn-primary">Luu dia chi</button>
+         </form>'; 
+        }
+        ?>
         <h3 class="mt-3 text-center">Don Hang</h3>
         <table class="table">
         <thead>

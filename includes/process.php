@@ -4,6 +4,21 @@ session_start();
 
 if (isset($_GET["action"])) {
     switch ($_GET["action"]) {
+        case "register":
+            $mskh=$_GET["MSKH"];
+            $hoten=$_GET["HoTenKH"];
+            $congty=$_GET["TenCongTy"];
+            $fax=$_GET["FAX"];
+            $pass=$_GET["Pass"];
+            $sdt=$_GET["SoDienThoai"];
+            $sql="INSERT INTO KHACHHANG VALUES('".$mskh."','".$hoten."','".$congty."','".$sdt."','".$fax."','".$pass."');";
+            if(mysqli_query($db,$sql)){
+                $_SESSION["account"]=$mskh;
+                header("location:../index.php?action=myaccount");
+            }
+            else echo "Mã số khách hàng đã tồn tại";
+            break;
+
         case "update":
             $index = 0;
             foreach ($_SESSION["cartList"] as $key => $value) {
@@ -75,8 +90,42 @@ if (isset($_GET["action"])) {
             } else
                 $_SESSION["code"] = "Unknown";
             header("location:../index.php?action=checkbill");
-
             break;
+
+        case "updateAccount":
+            $hoten = $_GET["hoten"];
+            $congty = $_GET["TenCongTy"];
+            $sdt = $_GET["SoDienThoai"];
+            $fax = $_GET["SoFax"];
+            $pass = $_GET["password"];
+            $sql = "UPDATE KHACHHANG SET HoTenKH='".$hoten."',TenCongTy='".$congty."',SoDienThoai='".$sdt."',SoFax='".$fax."',Pass='".$pass."' WHERE MSKH='".$_SESSION["account"]."';";
+            if(mysqli_query($db,$sql))
+                header("location:../index.php?action=myaccount");
+            else
+                echo "Lỗi";
+
+        case "updateAddresses":
+            $dc1=$_GET["diachi1"];
+            $dc2=$_GET["diachi2"];
+            $sql = "SELECT * FROM DIACHIKH WHERE MSKH='".$_SESSION["account"]."';";
+            $result = mysqli_query($db,$sql);
+            if(mysqli_num_rows($result)<=0){
+                $sql = "INSERT INTO DIACHIKH VALUES('".$_SESSION["account"]."dc1"."','Khong co','".$_SESSION["account"]."')";
+                $sql1 = "INSERT INTO DIACHIKH VALUES('".$_SESSION["account"]."dc2"."','Khong co','".$_SESSION["account"]."')";
+                if(mysqli_query($db,$sql) && mysqli_query($db,$sql1))
+                    echo "Đã thêm địa chỉ mặc định";
+                else echo "Lỗi thêm địa chỉ mặc định";
+            }
+            else{
+                $sql = "UPDATE DIACHIKH SET MSKH='".$_SESSION["account"]."',DiaChi='".$dc1."' WHERE  MaDC='".$_SESSION["account"]."dc1"."';";
+                $sql1 = "UPDATE DIACHIKH SET MSKH='".$_SESSION["account"]."',DiaChi='".$dc2."' WHERE  MaDC='".$_SESSION["account"]."dc2"."';";
+                if(mysqli_query($db,$sql) && mysqli_query($db,$sql1))
+                header("location:../index.php?action=myaccount");
+                else
+                    echo $sql;
+                    echo $sql1;
+                    echo "Lỗi thêm địa chỉ";    
+            }
     }
 }
     

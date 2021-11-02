@@ -1,5 +1,6 @@
 <?php
-session_start();
+  if(session_id()==="")
+  session_start();
 $code = "";
 if (isset($_GET["code"]) && $_GET["code"] != "") {
     $code = mysqli_real_escape_string($db, $_GET["code"]);

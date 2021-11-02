@@ -39,26 +39,27 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Dang Ky</h1>
               </div>
-              <form class="user" method="POST">
+              <form class="user" method="GET" action="includes/process.php">
+                <input type="hidden" value="register" name="action">
                 <div class="form-group">
-                  <input name="MSKH" type="text" class="form-control form-control-user" id="exampleInputUsername" required placeholder="MSKH">
+                  <input name="MSKH" type="text" class="form-control form-control-user"  required placeholder="MSKH">
                 </div>
                 <div class="form-group">
-                  <input name="HoTenKH" type="text" class="form-control form-control-user" id="exampleInputUsername" required placeholder="Ho Ten Khach">
+                  <input name="HoTenKH" type="text" class="form-control form-control-user"  required placeholder="Ho Ten Khach">
                 </div>
                 <div class="form-group">
-                  <input name="TenCongTy" type="text" class="form-control form-control-user" id="exampleInputUsername" required placeholder="Ten Cong Ty">
+                  <input name="TenCongTy" type="text" class="form-control form-control-user"  required placeholder="Ten Cong Ty">
                 </div>
                 <div class="form-group">
-                  <input name="SoFax" type="text" class="form-control form-control-user" id="exampleInputEmail" required placeholder="So Fax">
+                  <input name="FAX" type="text" class="form-control form-control-user"  required placeholder="So Fax">
                 </div>
                 <div class="form-group row">
                   <div class="col-12">
-                    <input name="password" type="password" class="form-control form-control-user" id="password1" required placeholder="Password">
+                    <input name="Pass" type="password" class="form-control form-control-user" required placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input name="SoDienThoai" type="text" class="form-control form-control-user" id="exampleInputEmail" required placeholder="So Dien Thoai">
+                  <input name="SoDienThoai" type="text" class="form-control form-control-user" required placeholder="So Dien Thoai">
                 </div>
                 <button class="btn btn-primary btn-user btn-block">Register Account</button>
               </form>
