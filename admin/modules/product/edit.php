@@ -28,7 +28,7 @@ if(!defined("ADMIN")){
                 <form action="./modules/product/process.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>MSHH</label>
-                        <input type="text" name="MSHH" class="form-control" value="<?=$result1["MSHH"]?>" />
+                        <input type="text" readonly name="MSHH" class="form-control" value="<?=$result1["MSHH"]?>" />
                     </div>
                     <div class="form-group">
                         <label>Ten Hang Hoa</label>
@@ -36,7 +36,7 @@ if(!defined("ADMIN")){
                     </div>
                     <div class="form-group">
                         <label>Quy Cach</label>
-                        <input type="text" name="QuyCach" class="form-control"  value="<?=$result1["QuyCach"]?>" />
+                        <textarea rows="10" type="text" name="QuyCach" class="form-control"  value="<?=$result1["QuyCach"]?>"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Gia</label>
@@ -67,6 +67,16 @@ if(!defined("ADMIN")){
                             <label for="input-hinh" class="btn btn-success w-100">Chon Hinh</label>
                             <input class="form-control" onchange="changeImage(this)" id="input-hinh" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
                             <div class="image-preview">
+                            <?php
+                                $sql = "SELECT * FROM HINHHANGHOA WHERE MSHH='" . $_GET["id"] . "'";
+                                $result = mysqli_query($db, $sql);
+
+                                while($row = mysqli_fetch_assoc($result)):
+                            ?>  
+                                <img src="/ecommerce/uploads/<?=$row["tenhinh"]?>" />
+                            <?php
+                                endwhile;
+                            ?>
                             </div>
                         </div>
                     </div>

@@ -56,7 +56,7 @@
                         <div class="col-lg-5 ord-1">
                             <div class="product__detail__img">
                                 <div class="product__detail__img__main" data-slide="1">
-                                    <img src="image/<?= $row["mahinh"] ?>" alt="main-clothes">
+                                    <img src="uploads/<?= $row["mahinh"] ?>" alt="main-clothes">
                                 </div>
                                 <div class="product__detail__img__option">
                                     <div class="product__detail__img__control prev"><i class="fa fa-chevron-up"></i></div>
@@ -67,12 +67,12 @@
                                         $row1 = mysqli_fetch_assoc($result1);
                                         $count = 1;
                                         echo ' <div class="product__detail__img__option_select active" data-slide="' . $count . '">
-                                                <img src="image/' . $row1["mahinh"] . '" alt="img-select">
+                                                <img src="uploads/' . $row1["mahinh"] . '" alt="img-select">
                                             </div>';
                                         if (mysqli_num_rows($result1) > 1)
                                             while ($row1) {
                                                 echo '  <div class="product__detail__img__option_select" data-slide="' . $count . '">
-                                                        <img src="image/' . $row1["mahinh"] . '" alt="img-select">
+                                                        <img src="uploads/' . $row1["mahinh"] . '" alt="img-select">
                                                     </div>';
                                                 $count += 1;
                                             }
@@ -109,7 +109,7 @@
                         $row1 = mysqli_fetch_assoc($result1);
                         echo '<div class="product-item product-item-catelog related">
                     <div class="product-item_img">
-                        <a href="index.php?action=product&id=' . $row1["MSHH"] . '"><img src="image/' . $row1["mahinh"] . '" alt=""></a>
+                        <a href="index.php?action=product&id=' . $row1["MSHH"] . '"><img src="uploads/' . $row1["mahinh"] . '" alt=""></a>
                     </div>                                                                  
                     <div class="product-item_desc">
                         <div class="product-item_desc-title"><a href="index.php?action=product&id=' . $row2["MSHH"] . '">' . $row2["TenHH"] . '</a></div>

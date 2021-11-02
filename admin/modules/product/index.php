@@ -26,23 +26,23 @@ if(!defined("ADMIN")){
                         <input type="text" name="MSHH" class="form-control" value="" />
                     </div>
                     <div class="form-group">
-                        <label>Ten Hang Hoa</label>
+                        <label>Tên Hàng Hóa</label>
                         <input type="text" name="TenHH" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Quy Cach</label>
-                        <input type="text" name="QuyCach" class="form-control" />
+                        <label>Quy Cách</label>
+                        <textarea rows="10" type="text" name="QuyCach" class="form-control" /></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Gia</label>
+                        <label>Giá</label>
                         <input type="text" name="Gia" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>So Luong Hang</label>
+                        <label>Số Lượng Hàng</label>
                         <input type="text" name="SoLuongHang" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Loai Hang Hoa</label>
+                        <label>Loại Hàng Hóa</label>
                         <select class="form-control" name="maloai">
                             <?php
                                 $sql = "SELECT * FROM LOAIHANGHOA";
@@ -59,13 +59,13 @@ if(!defined("ADMIN")){
                     <div class="form-group">
                         <label>File Hinh</label>
                         <div class="input-group mb-3 image-select">
-                            <label for="input-hinh" class="btn btn-success w-100">Chon Hinh</label>
+                            <label for="input-hinh" class="btn btn-success w-100">Chọn Hình</label>
                             <input class="form-control" onchange="changeImage(this)" id="input-hinh" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
                             <div class="image-preview">
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" name="themhang">Them Hang</button>
+                    <button type="submit" class="btn btn-primary" name="themhang">Thêm Hàng</button>
                 </form>
                 <div class="table-responsive">
                 <table class="table mt-4 table-bordered table-data" data-get="orders">

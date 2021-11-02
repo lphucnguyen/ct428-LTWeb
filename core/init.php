@@ -2,7 +2,7 @@
     // header("Content-type: text/html; charset=utf-8");
     $servername = "localhost";
     $username = "root";
-    $password = "Nguyen123@";
+    $password = "";
     $dbname = "quanlydathang";
 
     $db = mysqli_connect($servername, $username, $password, $dbname);

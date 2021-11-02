@@ -24,7 +24,7 @@
                         echo '<div class="col-6 col-lg-3">
                             <div class="product-item">
                                 <div class="product-item_img">
-                                    <a href="index.php?action=product&id=' . $row["MSHH"] . '"><img src="image/product-1.png" alt=""></a>
+                                    <a href="index.php?action=product&id=' . $row["MSHH"] . '"><img src="uploads/product-1.png" alt=""></a>
                                 </div>                                                                  
                                 <div class="product-item_desc">
                                     <div class="product-item_desc-title"><a href="index.php?action=product">' . $row["TenHH"] . '</a></div>

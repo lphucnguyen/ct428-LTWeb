@@ -29,7 +29,7 @@
   session_start();
   include("../core/init.php");
 
-  if(!isset($_SESSION["nhanvien"])) header("location: /admin/login.php");
+  if(!isset($_SESSION["nhanvien"])) header("location: login.php");
 
   define("ADMIN", true);
 
@@ -73,21 +73,21 @@
       <li class="nav-item <?=($module == "transaction") ? "active" : ""?>">
         <a class="nav-link collapsed" href="?module=transaction" aria-controls="collapseTwo">
           <i class="fas fa-dollar-sign"></i>
-          <span>Don Hang</span>
+          <span>Đơn Hàng</span>
         </a>
       </li>
       
       <li class="nav-item <?=($module == "product") ? "active" : ""?>">
         <a class="nav-link collapsed" href="?module=product" aria-controls="collapseTwo">
           <i class="fas fa-list-alt"></i>
-          <span>San pham</span>
+          <span>Sản phẩm</span>
         </a>
       </li>
 
       <li class="nav-item <?=($module == "category") ? "active" : ""?>">
         <a class="nav-link collapsed" href="?module=category" aria-controls="collapseTwo">
           <i class="fas fa-book"></i>
-          <span>Danh Muc</span>
+          <span>Danh Mục</span>
         </a>
       </li>
 

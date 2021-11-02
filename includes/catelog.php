@@ -62,7 +62,7 @@
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo ' <div class="product-item product-item-catelog grid">
                                             <div class="product-item_img">
-                                                <a href="index.php?action=product&id=' . $row["MSHH"] . '"><img src="image/' . $row["mahinh"] . '" alt=""></a>
+                                                <a href="index.php?action=product&id=' . $row["MSHH"] . '"><img src="uploads/' . $row["mahinh"] . '" alt=""></a>
                                             </div>
                                             <form action="includes/process.php" method="GET" class="product-item_desc-form">
                                                 <div class="product-item_desc">

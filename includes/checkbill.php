@@ -106,7 +106,7 @@ if (isset($code) && $code != "") {
                             <tr>
                             <td class="cart-body__name">
                                 <a href="index.php?action=product&id='.$row1['MSHH'].'">
-                                    <img src="image/' . $row_image["tenhinh"] . '" alt="">
+                                    <img src="uploads/' . $row_image["tenhinh"] . '" alt="">
                                     <h6>' . $row1["TenHH"] . '</h6>
                                 </a>
                             </td>

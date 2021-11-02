@@ -8,7 +8,7 @@ if(!defined("ADMIN")){
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Loai Hang</h1>
+  <h1 class="h3 mb-0 text-gray-800">Loại Hàng</h1>
 </div>
 
 <!-- Content Row -->
@@ -16,7 +16,7 @@ if(!defined("ADMIN")){
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Loai Hang</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Loại Hàng</h6>
             </div>
             <div class="card-body">
                 <?php 
@@ -26,11 +26,11 @@ if(!defined("ADMIN")){
                 ?>
                 <form action="./modules/category/process.php" method="POST">
                     <div class="form-group">
-                        <label>Ma Loai Hang</label>
-                        <input type="text" name="MaLoaiHang" class="form-control" value="<?=$row["MaLoaiHang"]?>" />
+                        <label>Mã Loại hàng</label>
+                        <input type="text" readonly name="MaLoaiHang" class="form-control" value="<?=$row["MaLoaiHang"]?>" />
                     </div>
                     <div class="form-group">
-                        <label>Ten Loai Hang</label>
+                        <label>Tên Loại Hàng</label>
                         <input type="text" name="TenLoaiHang" class="form-control" value="<?=$row["TenLoaiHang"]?>" />
                     </div>
                     <button type="submit" class="btn btn-primary" name="sualoaihang">Sua Loai Hang</button>

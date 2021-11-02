@@ -24,6 +24,7 @@
     include("../core/init.php");
     // print_r($db);
     session_start();
+    $error = "";
     if(isset($_SESSION["nhanvien"])) header("location: index.php?modules=transaction");
     if($_SERVER["REQUEST_METHOD"] == "POST"){
       if($_POST['MSNV'] == '' || $_POST['password'] == '') $error = "Vui long nhap MSNV hoac password";
@@ -31,13 +32,12 @@
       $result = mysqli_query($db, $sql);
       $row = mysqli_fetch_assoc($result);
 
-
-      if(count($row) > 0){
+      if($row){
         $_SESSION["nhanvien"] = $_POST['MSNV'];
         header("location: index.php?modules=transaction");
       }else{
         if($error == "")
-          $error = "MSNV hoac password khong dung";
+          $error = "MSNV hoặc password không đúng";
       }
     }
 ?>
@@ -59,11 +59,11 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Chào mừng đến với giao diện Admin</h1>
                   </div>
                   <form class="user" method="POST">
                     <div class="form-group">
-                      <input type="text" name="MSNV" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nhap Ma So KH">
+                      <input type="text" name="MSNV" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nhap Ma So NV">
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
@@ -77,7 +77,7 @@
                     <?php
                       endif;
                     ?>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                    <button type="submit" class="btn btn-primary btn-user btn-block">Đăng nhập</button>
                   </form>
                 </div>
               </div>
