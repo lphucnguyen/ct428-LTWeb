@@ -20,19 +20,24 @@
                 $sql = 'SELECT * FROM HANGHOA';
                 $result = mysqli_query($db, $sql);
                 if (mysqli_affected_rows($db) > 0) {
-                    while ($row = mysqli_fetch_assoc($result))
+                    while ($row = mysqli_fetch_assoc($result)){
+                        $sql_image = "SELECT * FROM HINHHANGHOA WHERE MSHH='" . $row["MSHH"] . "'";
+                        $result_image = mysqli_query($db, $sql_image);
+                        $row_image = mysqli_fetch_assoc($result_image);
+
                         echo '<div class="col-6 col-lg-3">
                             <div class="product-item">
                                 <div class="product-item_img">
-                                    <a href="index.php?action=product&id=' . $row["MSHH"] . '"><img src="uploads/product-1.png" alt=""></a>
+                                    <a href="index.php?action=product&id=' . $row["MSHH"] . '"><img src="uploads/'.$row_image["tenhinh"].'" alt=""></a>
                                 </div>                                                                  
                                 <div class="product-item_desc">
                                     <div class="product-item_desc-title"><a href="index.php?action=product">' . $row["TenHH"] . '</a></div>
-                                    <span class="product-item_desc-price_new">$' . $row["Gia"] . ' USD</span>
+                                    <span class="product-item_desc-price_new">' . number_format($row["Gia"], 0, '', '.') . ' VND</span>
                                 </div>
                                 <a href="includes/process.php?action=addCart&id=' . $row["MSHH"] . '"><button class="btn-add-to-cart"><i class="fa fa-shopping-cart"></i> Add to cart</button></a>
                             </div>
                         </div>';
+                    }
                 }
                 ?>
                 <!-- <div class="col-6 col-lg-3">
@@ -120,11 +125,11 @@
                         </div>
                     </div> -->
 
-                <div class="col-md-12 load-more">
+                <!-- <div class="col-md-12 load-more">
                     <div class="load-more_content">
                         <i class="fa fa-refresh"></i><span>LOAD MORE</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

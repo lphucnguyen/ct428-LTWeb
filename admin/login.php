@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login Page</title>
+  <title>Trang đăng nhập</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -28,7 +28,7 @@
     if(isset($_SESSION["nhanvien"])) header("location: index.php?modules=transaction");
     if($_SERVER["REQUEST_METHOD"] == "POST"){
       if($_POST['MSNV'] == '' || $_POST['password'] == '') $error = "Vui long nhap MSNV hoac password";
-      $sql = "SELECT * FROM NHANVIEN WHERE MSNV='". $_POST['MSNV'] ."' AND Pass='" . $_POST['password'] . "';";
+      $sql = "SELECT * FROM NHANVIEN WHERE MSNV='". $_POST['MSNV'] ."' AND Pass='" . md5($_POST['password']) . "';";
       $result = mysqli_query($db, $sql);
       $row = mysqli_fetch_assoc($result);
 
@@ -55,11 +55,11 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
+              <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+              <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Chào mừng đến với giao diện Admin</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Chào mừng đến với giao diện nhân viên</h1>
                   </div>
                   <form class="user" method="POST">
                     <div class="form-group">

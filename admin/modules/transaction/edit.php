@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Don Hang</h1>
+    <h1 class="h3 mb-0 text-gray-800">Đơn hàng</h1>
     </div>
     <!-- Content Row -->
     <div class="row">
@@ -18,52 +18,52 @@
         <div class="col-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Don Hang</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Đơn hàng</h6>
                 </div>
                 <div class="card-body">
                     <form action="./modules/transaction/process.php" method="POST">
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">So Don Dat Hang:</label>
+                            <label class="col-sm-2 col-form-label">Số đơn đặt hàng:</label>
                             <div class="col-sm-10">
                                 <input type="text" readonly class="form-control" value="<?=$result["SoDonDH"]?>" name="SoDonDH">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Ma So Khach Hang:</label>
+                            <label class="col-sm-2 col-form-label">Mã số khách hàng:</label>
                             <div class="col-sm-10">
                                 <input type="text" readonly class="form-control" value="<?=$result["MSKH"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Ma So Nhan Vien:</label>
+                            <label class="col-sm-2 col-form-label">Mã số nhân viên:</label>
                             <div class="col-sm-10">
                                 <input type="text" readonly class="form-control" value="<?=$_SESSION["nhanvien"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Ngay Dat Hang:</label>
+                            <label class="col-sm-2 col-form-label">Ngày đặt hàng:</label>
                             <div class="col-sm-10">
                                 <input type="text" readonly class="form-control" value="<?=$result["NgayDH"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Ngay Giao Hang:</label>
+                            <label class="col-sm-2 col-form-label">Ngày giao hàng:</label>
                             <div class="col-sm-10">
                                 <input type="text" readonly class="form-control" value="<?=$result["NgayGH"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Dia Chi:</label>
+                            <label class="col-sm-2 col-form-label">Địa chỉ:</label>
                             <div class="col-sm-10">
                                 <input type="text" readonly class="form-control" value="<?=$result["DiaChi"]?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Trang Thai Don Hang:</label>
+                            <label class="col-sm-2 col-form-label">Trạng thái đơn hàng:</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="TrangThaiDH">
-                                    <option value="Chua Xac Nhan" <?=($result["TrangThaiDH"] == "Chua Xac Nhan") ? "selected" : ""?>>Chua Xac Nhan</option>
-                                    <option value="Da Xac Nhan" <?=($result["TrangThaiDH"] == "Da Xac Nhan") ? "selected" : ""?>>Da Xac Nhan</option>
+                                    <option value="Chua Xac Nhan" <?=($result["TrangThaiDH"] == "Chua Xac Nhan") ? "selected" : ""?>>Chưa xác nhận</option>
+                                    <option value="Da Xac Nhan" <?=($result["TrangThaiDH"] == "Da Xac Nhan") ? "selected" : ""?>>Đã xác nhận</option>
                                 </select>
                             </div>
                         </div>
@@ -82,10 +82,10 @@
                     <table class="table table-bordered table-data" data-get="orders">
                         <thead>
                         <tr>
-                            <th>Ten Hang Hoa</th>
-                            <th>Gia</th>
-                            <th>So Luong</th>
-                            <th>Gia Dat Hang</th>
+                            <th>Tên hàng hóa</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Giá đặt hàng</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -107,7 +107,7 @@
                                             <h6>' . $row1["TenHH"] . '</h6>
                                         </a>
                                     </td>
-                                    <td>$' . $row1["Gia"] . '</td>
+                                    <td>$' . number_format($row1["Gia"], 3, ',', ' ') . '</td>
                                     <td>2' . $row1["SoLuong"] . '</td>
                                     <td>$' . $row1["GiaDatHang"] . '</td>
                                 </tr>';

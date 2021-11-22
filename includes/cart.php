@@ -1,11 +1,11 @@
 <div class="breadcum">
     <div class="breadcum-title">
-        <h3>My Cart</h3>
+        <h3>Giỏ hàng</h3>
     </div>
     <div class="breadcum-content">
         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="?action=cart">Cart</a></li>
+            <li><a href="index.php">Trang chủ</a></li>
+            <li><a href="?action=cart">Giỏ hàng</a></li>
         </ul>
     </div>
 </div>
@@ -27,10 +27,10 @@ if (isset($_GET["id"]))
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>All products</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tổng cộng</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -49,7 +49,7 @@ if (isset($_GET["id"]))
                                             <h6>' . $row["TenHH"] . '</h6>
                                         </a>
                                     </td>
-                                    <td>' . $row["Gia"] . '</td>
+                                    <td>' . number_format($row["Gia"], 0, '', '.') . ' VND</td>
                                     <td>
                                         <div class="quantity">
                                             <div class="decs-quantity qtybutton"><i class="fa fa-minus"></i></div>                            
@@ -58,7 +58,7 @@ if (isset($_GET["id"]))
                                             <div class="inc-quantity qtybutton"><i class="fa fa-plus"></i></div>
                                         </div>
                                     </td>
-                                    <td>$' . $quan * $row["Gia"] . '</td>
+                                    <td>' . number_format($quan * $row["Gia"], 0, '', '.') . ' VND</td>
                                     <td><a href="includes/process.php/?action=del&id=' . $mshh . '"><span class="fa fa-times del-product"></span></a></td>
                                 </tr>';
                                     }
@@ -82,13 +82,13 @@ if (isset($_GET["id"]))
                     }
 
                     ?>
-                    <h5 class="total-price__title">Total Price: </h5>
-                    <h5 class="total-price__value"><?= $total ?></h5>
+                    <h5 class="total-price__title">Tổng cộng: </h5>
+                    <h5 class="total-price__value"><?= number_format($total, 0, '', '.') ?> VND</h5>
                 </div>
-                <a href="index.php" type="button" class="btn-cart btn-shopping">Continue Shopping</a>
+                <a href="index.php" type="button" class="btn-cart btn-shopping">Tiếp tục mua hàng</a>
                 <div class="cart-upate">
-                    <button type="submit" class="btn-cart btn-upate">Update</button>
-                    <a href="?action=checkout" type="button" class="btn-cart btn-checkout">Checkout</a>
+                    <button type="submit" class="btn-cart btn-upate">Cập nhật</button>
+                    <a href="?action=checkout" type="button" class="btn-cart btn-checkout">Thanh toán</a>
                 </div>
             </form>
         </div>

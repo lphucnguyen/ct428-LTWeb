@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login Page</title>
+  <title>Trang đăng nhập</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,11 +26,12 @@
   // if(isset($_SESSION["nhanvien"])) header("location: index.php?action=myaccount");
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     if($_POST['MSKH'] == '' || $_POST['password'] == '') $error = "Vui long nhap MSKH hoac password";
-    $sql = "SELECT MSKH FROM KHACHHANG WHERE MSKH='". $_POST['MSKH'] ."' AND Pass='" . $_POST['password'] . "'";
+    $sql = "SELECT MSKH FROM KHACHHANG WHERE MSKH='". $_POST['MSKH'] ."' AND Pass='" . md5($_POST['password']) . "'";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    if(count($row) > 0){
+    $error = "";
+    if(mysqli_num_rows($result) == 1){
       $_SESSION["account"] = $_POST['MSKH'];
       header("location: index.php?action=myaccount");
     }else{
@@ -53,15 +54,15 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
+              <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+              <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Đăng nhập khách hàng</h1>
                   </div>
                   <form class="user" method="POST">
                     <div class="form-group">
-                      <input type="text" name="MSKH" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nhap Ma So KH">
+                      <input type="text" name="MSKH" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nhập mã số KH">
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
@@ -75,11 +76,11 @@
                     <?php
                       endif;
                     ?>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                    <button type="submit" class="btn btn-primary btn-user btn-block">Đăng nhập</button>
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="register.php">Create an Account!</a>
+                    <a class="small" href="register.php">Tạo tài khoản</a>
                   </div>
                 </div>
               </div>

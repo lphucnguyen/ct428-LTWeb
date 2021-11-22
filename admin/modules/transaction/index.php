@@ -8,7 +8,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Don Hang</h1>
+  <h1 class="h3 mb-0 text-gray-800">Đơn hàng</h1>
 </div>
 
 <!-- Content Row -->
@@ -16,19 +16,19 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Don Hang</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Đơn hàng</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                 <table class="table table-bordered table-data" data-get="orders">
                     <thead>
                     <tr>
-                        <th>So Don DH</th>
-                        <th>Ma So Khach Hang</th>
-                        <th>Ma So Nhan Vien</th>
-                        <th>Ngay DH</th>
-                        <th>Ngay GH</th>
-                        <th>Trang Thai</th>
+                        <th>Sô đơn đặt hàng</th>
+                        <th>Mã số khách hàng</th>
+                        <th>Mã số nhân viên</th>
+                        <th>Ngày đặt hàng</th>
+                        <th>Ngày giao hàng</th>
+                        <th>Trạng thái</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -47,7 +47,7 @@
                                 <td><?=$row["NgayGH"]?></td>
                                 <td><?=$row["TrangThaiDH"]?></td>
                                 <td style="width: 200px;">
-                                    <a class="btn btn-primary" href="?module=transaction&action=edit&id=<?=$row["SoDonDH"]?>">Xem Don Hang</a>
+                                    <a class="btn btn-primary" href="?module=transaction&action=edit&id=<?=$row["SoDonDH"]?>">Xem đơn hàng</a>
                                 </td>
                             </tr>
                         <?php

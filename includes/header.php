@@ -12,12 +12,12 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" integrity="sha256-p6xU9YulB7E2Ic62/PX+h59ayb3PBJ0WFTEQxq0EjHw=" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
-    <title>Index</title>
+    <title>Be Pro Shop</title>
 </head>
 <body>
-    <div class="loading">
+    <!-- <div class="loading">
         <div class="spin"></div>
-    </div>
+    </div> -->
     <!-- Header -->
     <header>
         <?php

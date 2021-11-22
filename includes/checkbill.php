@@ -1,5 +1,6 @@
 <?php
-session_start();
+  if(session_id()==="")
+  session_start();
 $code = "";
 if (isset($_GET["code"]) && $_GET["code"] != "") {
     $code = mysqli_real_escape_string($db, $_GET["code"]);
@@ -20,12 +21,12 @@ if (isset($code) && $code != "") {
 
 <div class="breadcum">
     <div class="breadcum-title">
-        <h3>Check bill</h3>
+        <h3>Kiểm tra hóa đơn</h3>
     </div>
     <div class="breadcum-content">
         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="?action=checkbill">Checkbill</a></li>
+            <li><a href="index.php">Trang chủ</a></li>
+            <li><a href="?action=checkbill">Kiểm tra hóa đơn</a></li>
         </ul>
     </div>
 </div>
@@ -37,13 +38,8 @@ if (isset($code) && $code != "") {
                 <input type="hidden" name="action" value="getCode" />
                 <h5>Mã số đơn hàng: </h5>
                 <div class="form-group row">
-                    <div class="col-lg-11">
-                        <input type="text" name="ord-code" class="form-control" value="<?=$_SESSION["code"]?>">
-                    </div>
-                    <div class="col-lg-1">
-                        <button type="submit" class="btn ord-code-btn text-uppercase">Check</button>
-                    </div>
-
+                    <input type="text" name="ord-code" class="form-control" value="<?=$_SESSION["code"]?>">
+                    <button type="submit" class="btn ord-code-btn text-uppercase mt-2 w-100">Kiểm tra</button>
                 </div>
             </form>
             <form action="">
@@ -110,9 +106,9 @@ if (isset($code) && $code != "") {
                                     <h6>' . $row1["TenHH"] . '</h6>
                                 </a>
                             </td>
-                            <td>' . $row1["Gia"] . '</td>
+                            <td>' . number_format($row1["Gia"], 0, '', '.') . ' VND</td>
                             <td>' . $row1["SoLuong"] . '</td>
-                            <td>' . $row1["GiaDatHang"] . '</td>
+                            <td>' . number_format($row1["GiaDatHang"], 0, '', '.') . ' VND</td>
                         </tr>';
                                         $total += $row1["GiaDatHang"];
                                     }
@@ -125,11 +121,11 @@ if (isset($code) && $code != "") {
             </form>
             <div class="total-price">
                 <h5 class="total-price__title">Tổng giá: </h5>
-                <h5 class="total-price__value">$
+                <h5 class="total-price__value">
                     <?php if (!isset($_SESSION["Total"]))
                         echo "0";
                     else
-                        echo $_SESSION["Total"]; ?></h5>
+                        echo number_format($_SESSION["Total"], 0, '', '.'); ?> VND</h5>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Register Page</title>
+  <title>Trang Đăng Kí</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +23,27 @@
 <?php
   include("core/init.php");
   session_start();
+
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $mskh=$_POST["MSKH"];
+    $hoten=$_POST["HoTenKH"];
+    $congty=$_POST["TenCongTy"];
+    $fax=$_POST["FAX"];
+    $pass=$_POST["Pass"];
+    $sdt=$_POST["SoDienThoai"];
+    
+    $sql = "SELECT * FROM KHACHHANG WHERE MSKH='" . $mskh . "'";
+    $result = mysqli_query($db,$sql);
+    if(mysqli_num_rows($result) == 0){
+        $sql_insert="INSERT INTO KHACHHANG VALUES('".$mskh."','".$hoten."','".$congty."','".$sdt."','".$fax."','".md5($pass)."');";
+        mysqli_query($db,$sql_insert);
+        $_SESSION["account"]=$mskh;
+        header("location: index.php?action=myaccount");
+    }
+    else {
+        $_SESSION["error"] = "Mã số khách hàng đã tồn tại";
+    };
+  }
 ?>
 
 <body class="bg-gradient-primary">
@@ -33,38 +54,46 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-          <div class="col-lg-7">
+          <!-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div> -->
+          <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Dang Ky</h1>
+                <h1 class="h4 text-gray-900 mb-4">Đăng kí khách hàng</h1>
               </div>
+              <?php
+                if(isset($_SESSION["error"])):
+              ?>
+              <div class="text-danger mt-3"><?=$_SESSION["error"]?></div>
+              <?php
+                endif;
+                unset($_SESSION["error"]);
+              ?>
               <form class="user" method="POST">
                 <div class="form-group">
-                  <input name="MSKH" type="text" class="form-control form-control-user" id="exampleInputUsername" required placeholder="MSKH">
+                  <input name="MSKH" type="text" class="form-control form-control-user"  required placeholder="Mã số khách hàng">
                 </div>
                 <div class="form-group">
-                  <input name="HoTenKH" type="text" class="form-control form-control-user" id="exampleInputUsername" required placeholder="Ho Ten Khach">
+                  <input name="HoTenKH" type="text" class="form-control form-control-user"  required placeholder="Họ tên">
                 </div>
                 <div class="form-group">
-                  <input name="TenCongTy" type="text" class="form-control form-control-user" id="exampleInputUsername" required placeholder="Ten Cong Ty">
+                  <input name="TenCongTy" type="text" class="form-control form-control-user"  required placeholder="Tên công ty">
                 </div>
                 <div class="form-group">
-                  <input name="SoFax" type="text" class="form-control form-control-user" id="exampleInputEmail" required placeholder="So Fax">
+                  <input name="FAX" type="text" class="form-control form-control-user"  required placeholder="Số Fax">
                 </div>
                 <div class="form-group row">
                   <div class="col-12">
-                    <input name="password" type="password" class="form-control form-control-user" id="password1" required placeholder="Password">
+                    <input name="Pass" type="password" class="form-control form-control-user" required placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input name="SoDienThoai" type="text" class="form-control form-control-user" id="exampleInputEmail" required placeholder="So Dien Thoai">
+                  <input name="SoDienThoai" type="text" class="form-control form-control-user" required placeholder="Số điện thoại">
                 </div>
-                <button class="btn btn-primary btn-user btn-block">Register Account</button>
+                <button class="btn btn-primary btn-user btn-block">Đăng kí tài khoản</button>
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="login.php">Already have an account? Login!</a>
+                <a class="small" href="login.php">Đăng nhập</a>
               </div>
             </div>
           </div>

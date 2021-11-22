@@ -12,7 +12,6 @@
 
 <main>
     <?php
-    session_start();
     if (!isset($_SESSION["account"]))
         header("location:login.php");
 
@@ -24,36 +23,36 @@
     <div class="container">
         <form action="includes/process.php?" class="check-out-form" method="GET">
             <div class="row">
-                <div class="col-lg-8 col-12">
-                    <h3>BILLING DETAIL</h3>
+                <div class="col-lg-7 col-12">
+                    <h3>Chi tiết hóa đơn</h3>
                     <div class="form-group row">
-                        <label for="" class="col-lg-3 col-form-label">Họ tên khách hàng:</label>
-                        <div class="col-lg-9">
+                        <label for="" class="col-lg-4 col-form-label">Họ tên khách hàng:</label>
+                        <div class="col-lg-8">
                             <input type="text" name="name" class="form-control" value="<?= $row['HoTenKH'] ?>" disabled>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-lg-3 col-form-label">Tên công ty:</label>
-                        <div class="col-lg-9">
+                        <label for="" class="col-lg-4 col-form-label">Tên công ty:</label>
+                        <div class="col-lg-8">
                             <input type="text" name="company" class="form-control" value="<?= $row['TenCongTy'] ?>" disabled>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-lg-3 col-form-label">Phone:</label>
-                        <div class="col-lg-9">
+                        <label for="" class="col-lg-4 col-form-label">Số điện thoại:</label>
+                        <div class="col-lg-8">
                             <input type="text" name="phone" class="form-control" value="<?= $row['SoDienThoai'] ?>" disabled>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-lg-3 col-form-label">Số Fax:</label>
-                        <div class="col-lg-9">
+                        <label for="" class="col-lg-4 col-form-label">Số Fax:</label>
+                        <div class="col-lg-8">
                             <input type="text" name="Fax" class="form-control" value="<?= $row['SoFax'] ?>" disabled>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="" class="col-lg-3 col-form-label">Address:</label>
-                        <div class="col-lg-9">
+                        <label for="" class="col-lg-4 col-form-label">Địa chỉ:</label>
+                        <div class="col-lg-8">
                             <select type="select" name="dc" class="form-control">
                        
                                 <?php
@@ -69,17 +68,17 @@
                     </div>
 
                 </div>
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-5 col-12">
                     <div class="order-detail">
                         <div class="order-detail__title">
-                            <h3>Your Order</h3>
+                            <h3>Đơn hàng của bạn</h3>
                         </div>
                         <div class="order-detail__product">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Products</th>
-                                        <th>Total</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Tổng cộng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,7 +91,7 @@
                                             $row = mysqli_fetch_assoc($result);
                                             echo ' <tr>
                                                 <td>' . $row["TenHH"] . ' x' . $quantity . '</td>
-                                                <td>$' . $row["Gia"] * (int)$quantity . '</td>
+                                                <td>' . number_format($row["Gia"] * (int)$quantity , 0, '', '.') . ' VND</td>
                                             </tr>';
                                             $total += $row["Gia"] * (int)$quantity;
                                         }
@@ -100,8 +99,8 @@
                                     ?>
 
                                     <tr class="order-detail__product__total">
-                                        <td>Total</td>
-                                        <td>$<?= $total ?></td>
+                                        <td>Tổng cộng</td>
+                                        <td><?= number_format($total , 0, '', '.') ?> VND</td>
                                         <input type="hidden" name="total" value="<?= $total ?>">
                                     </tr>
                                 </tbody>
@@ -109,7 +108,7 @@
                         </div>
                         <div class="order-detail__submit">
                             <input type="hidden" value="placeorder" name="action">
-                            <button type="submit" class="btn-order">Place Order</button>
+                            <button type="submit" class="btn-order">Mua hàng</button>
                         </div>
                     </div>
                 </div>

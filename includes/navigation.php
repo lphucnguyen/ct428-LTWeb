@@ -20,8 +20,8 @@
                 session_start();
                 if(!isset($_SESSION["account"])):
             ?>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="register.php">Sign Up</a></li>
+            <li><a href="login.php">Đăng nhập</a></li>
+            <li><a href="register.php">Đăng kí</a></li>
             <?php
                 else:
             ?>

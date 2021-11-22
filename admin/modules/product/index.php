@@ -9,7 +9,7 @@ if(!defined("ADMIN")){
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Hang Hoa</h1>
+  <h1 class="h3 mb-0 text-gray-800">Hàng hóa</h1>
 </div>
 
 <!-- Content Row -->
@@ -17,7 +17,7 @@ if(!defined("ADMIN")){
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Hang Hoa</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Hàng hóa</h6>
             </div>
             <div class="card-body">
                 <form action="./modules/product/process.php" method="POST" enctype="multipart/form-data">
@@ -31,7 +31,7 @@ if(!defined("ADMIN")){
                     </div>
                     <div class="form-group">
                         <label>Quy Cách</label>
-                        <textarea rows="10" type="text" name="QuyCach" class="form-control" /></textarea>
+                        <textarea rows="10" type="text" name="QuyCach" class="form-control" ></textarea>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
@@ -71,9 +71,9 @@ if(!defined("ADMIN")){
                 <table class="table mt-4 table-bordered table-data" data-get="orders">
                     <thead>
                     <tr>
-                        <th>Ten Hang</th>
-                        <th>Gia</th>
-                        <th>So Luong Hang</th>
+                        <th>Tên hàng</th>
+                        <th>Giá</th>
+                        <th>Số lượng hàng</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -86,14 +86,14 @@ if(!defined("ADMIN")){
                         ?>
                             <tr>
                                 <td><?=$row["TenHH"]?></td>
-                                <td><?=$row["Gia"]?></td>
+                                <td><?=number_format($row["Gia"], 0, '', '.')?></td>
                                 <td><?=$row["SoLuongHang"]?></td>
                                 <td>
                                     <a href="index.php?module=product&action=edit&id=<?=$row["MSHH"]?>" class="btn btn-primary">
-                                        Chinh Sua
+                                        Chỉnh sửa
                                     </a>
                                     <a href="./modules/product/process.php?action=xoa&id=<?=$row["MSHH"]?>" class="btn btn-danger">
-                                        Xoa
+                                        Xoá
                                     </a>
                                 </td>
                             </tr>

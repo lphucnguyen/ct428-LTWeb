@@ -179,6 +179,7 @@ $(document).ready(function () {
             $(this).removeClass("grid").addClass("list");
         });
         $(".product-item_desc-form").css("width", "70%");
+        $(".product-item_desc-form").css("padding-left", "20px");
         $(".product-item_desc-descreption").css("display", "block");
         $(".btn-add-to-cart").css("opacity", "1");
         $(".btn-add-to-cart").css("visibility", "visible");
@@ -309,26 +310,26 @@ $(document).ready(function () {
 
     // Related Product
 
-    $(".product-related").slick({
-        slidesToShow: 4,
-        prevArrow: $(".control-button.prev"),
-        nextArrow: $(".control-button.next"),
-        infinite: false,
-        responsive:[
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2
-                }
-            }
-        ]
-    });
+    // $(".product-related").slick({
+    //     slidesToShow: 4,
+    //     prevArrow: $(".control-button.prev"),
+    //     nextArrow: $(".control-button.next"),
+    //     infinite: false,
+    //     responsive:[
+    //         {
+    //             breakpoint: 1024,
+    //             settings: {
+    //                 slidesToShow: 1
+    //             }
+    //         },
+    //         {
+    //             breakpoint: 600,
+    //             settings: {
+    //                 slidesToShow: 2
+    //             }
+    //         }
+    //     ]
+    // });
 
 
     // Ajax

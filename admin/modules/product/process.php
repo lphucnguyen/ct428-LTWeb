@@ -8,21 +8,28 @@
         $maloai=$_POST['maloai'];
         $gia=$_POST['Gia'];
         $soluong=$_POST['SoLuongHang'];
-
         $i = 0;
         $name = "";
-        
+
+        $sql = "SELECT * FROM hanghoa WHERE MSHH='" . $mshh . "'";
+        $result = mysqli_query($db, $sql);
+
+        if(mysqli_num_rows($result) > 0){
+            header("location: /admin/index.php?module=product");
+        }
+        $str = "";
+        $sql = "INSERT INTO hanghoa VALUE('".$mshh."','".$tensach."','" .$quycach. "','".$gia."','".$soluong."','" .$maloai. "')";
+        $result = mysqli_query($db, $sql);
         foreach ($_FILES['hinhanh']['name'] as $file) {
             $tenhinhanh_tmp = $_FILES['hinhanh']['tmp_name'][$i];
             $name = $mshh . $file;
             $path_file = $path . $mshh .$file;
             move_uploaded_file($tenhinhanh_tmp,$path_file);
             $i++;
-            $sql1 = "INSERT INTO hinhhanghoa(MSHH,tenhinh,mahinh) VALUE('".$mshh."','".$name."','".$name."')";
+            $sql1 = "INSERT INTO hinhhanghoa(MSHH,tenhinh,mahinh) VALUE('".$mshh."','".$name."','".$name."');";
+            $str .= $sql1;
             mysqli_query($db, $sql1);
         }
-        $sql = "INSERT INTO hanghoa VALUE('".$mshh."','".$tensach."','" .$quycach. "','".$gia."','".$soluong."','" .$maloai. "')";
-        $result = mysqli_query($db, $sql);
 
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }

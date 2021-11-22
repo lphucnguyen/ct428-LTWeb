@@ -75,8 +75,51 @@ if (isset($_GET["action"])) {
             } else
                 $_SESSION["code"] = "Unknown";
             header("location:../index.php?action=checkbill");
-
             break;
+
+        case "updateAccount":
+            $hoten = $_GET["hoten"];
+            $congty = $_GET["TenCongTy"];
+            $sdt = $_GET["SoDienThoai"];
+            $fax = $_GET["SoFax"];
+            $pass = $_GET["password"];
+            $strPass = ($pass != '' ? ",Pass='".$pass."'" : "");
+
+            $sql = "UPDATE KHACHHANG SET HoTenKH='".$hoten."',TenCongTy='".$congty."',SoDienThoai='".$sdt."',SoFax='".$fax."'". $strPass ." WHERE MSKH='".$_SESSION["account"]."';";
+            if(mysqli_query($db,$sql))
+                header("location:../index.php?action=myaccount");
+            else{
+                $_SESSION["error"] = "Lỗi";
+                header("location:../index.php?action=myaccount");
+            }
+
+        case "updateAddresses":
+            $dc1=$_GET["diachi1"];
+            $dc2=$_GET["diachi2"];
+            $sql = "SELECT * FROM DIACHIKH WHERE MSKH='".$_SESSION["account"]."';";
+            $result = mysqli_query($db,$sql);
+            if(mysqli_num_rows($result)<=0){
+                $sql = "INSERT INTO DIACHIKH VALUES('".$_SESSION["account"]."DC1"."','".$dc1."','".$_SESSION["account"]."')";
+                $sql1 = "INSERT INTO DIACHIKH VALUES('".$_SESSION["account"]."DC2"."','".$dc2."','".$_SESSION["account"]."')";
+                if(mysqli_query($db,$sql) && mysqli_query($db,$sql1))
+                    header("location:../index.php?action=myaccount");
+                else {
+                    $_SESSION["error"] = "Lỗi thêm địa chỉ mặc định";
+                    header("location:../index.php?action=myaccount");
+                }
+            }
+            else{
+                $sql = "UPDATE DIACHIKH SET MSKH='".$_SESSION["account"]."',DiaChi='".$dc1."' WHERE  MaDC='".$_SESSION["account"]."DC1"."';";
+                $sql1 = "UPDATE DIACHIKH SET MSKH='".$_SESSION["account"]."',DiaChi='".$dc2."' WHERE  MaDC='".$_SESSION["account"]."DC2"."';";
+                // echo $sql;
+                // return;
+                if(mysqli_query($db,$sql) && mysqli_query($db,$sql1))
+                header("location:../index.php?action=myaccount");
+                else{
+                        $_SESSION["error"] = "Lỗi thêm địa chỉ";  
+                        header("location:../index.php?action=myaccount");
+                }   
+            }
     }
 }
     

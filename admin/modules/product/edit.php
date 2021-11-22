@@ -9,7 +9,7 @@ if(!defined("ADMIN")){
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Hang Hoa</h1>
+  <h1 class="h3 mb-0 text-gray-800">Hàng hóa</h1>
 </div>
 
 <!-- Content Row -->
@@ -22,7 +22,7 @@ if(!defined("ADMIN")){
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Hang Hoa</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Hàng hóa</h6>
             </div>
             <div class="card-body">
                 <form action="./modules/product/process.php" method="POST" enctype="multipart/form-data">
@@ -31,23 +31,23 @@ if(!defined("ADMIN")){
                         <input type="text" readonly name="MSHH" class="form-control" value="<?=$result1["MSHH"]?>" />
                     </div>
                     <div class="form-group">
-                        <label>Ten Hang Hoa</label>
+                        <label>Tên hàng hóa</label>
                         <input type="text" name="TenHH" class="form-control"  value="<?=$result1["TenHH"]?>" />
                     </div>
                     <div class="form-group">
-                        <label>Quy Cach</label>
-                        <textarea rows="10" type="text" name="QuyCach" class="form-control"  value="<?=$result1["QuyCach"]?>"></textarea>
+                        <label>Quy cách</label>
+                        <textarea rows="10" type="text" name="QuyCach" class="form-control"><?=$result1["QuyCach"]?></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Gia</label>
+                        <label>Giá</label>
                         <input type="text" name="Gia" class="form-control"  value="<?=$result1["Gia"]?>" />
                     </div>
                     <div class="form-group">
-                        <label>So Luong Hang</label>
+                        <label>Số lượng hàng</label>
                         <input type="text" name="SoLuongHang" class="form-control"  value="<?=$result1["SoLuongHang"]?>" />
                     </div>
                     <div class="form-group">
-                        <label>Loai Hang Hoa</label>
+                        <label>Loại hàng hóa</label>
                         <select class="form-control" name="maloai">
                             <?php
                                 $sql = "SELECT * FROM LOAIHANGHOA";
@@ -62,9 +62,9 @@ if(!defined("ADMIN")){
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>File Hinh</label>
+                        <label>File hình</label>
                         <div class="input-group mb-3 image-select">
-                            <label for="input-hinh" class="btn btn-success w-100">Chon Hinh</label>
+                            <label for="input-hinh" class="btn btn-success w-100">Chọn hình</label>
                             <input class="form-control" onchange="changeImage(this)" id="input-hinh" type="file" id="hinhanh" name="hinhanh[]" multiple="true">
                             <div class="image-preview">
                             <?php
@@ -73,14 +73,14 @@ if(!defined("ADMIN")){
 
                                 while($row = mysqli_fetch_assoc($result)):
                             ?>  
-                                <img src="/ecommerce/uploads/<?=$row["tenhinh"]?>" />
+                                <img src="../uploads/<?=$row["tenhinh"]?>" />
                             <?php
                                 endwhile;
                             ?>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" name="suahang">Sua Hang</button>
+                    <button type="submit" class="btn btn-primary" name="suahang">Sửa hàng</button>
                 </form>
             </div>
             </div>
