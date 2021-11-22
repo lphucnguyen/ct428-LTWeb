@@ -1392,7 +1392,7 @@ footer{
 /* Products */
 .product-items{
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .list{
     width: 100% !important;

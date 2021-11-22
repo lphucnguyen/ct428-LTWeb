@@ -1,11 +1,11 @@
 <div class="breadcum">
     <div class="breadcum-title">
-        <h3>Check out</h3>
+        <h3>Thanh toán</h3>
     </div>
     <div class="breadcum-content">
         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="?action=checkout">Checkout</a></li>
+            <li><a href="index.php">Trang chủ</a></li>
+            <li><a href="?action=checkout">Thanh toán</a></li>
         </ul>
     </div>
 </div>

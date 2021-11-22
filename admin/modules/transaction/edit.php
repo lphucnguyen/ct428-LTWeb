@@ -102,14 +102,14 @@
                                 echo '       
                                     <tr>
                                     <td class="cart-body__name">
-                                        <a href="index.php?action=product&id='.$row1['MSHH'].'">
+                                        <a href="index.php?module=product&action=edit&id='.$row1['MSHH'].'">
                                             <img src="image/' . $row_image["tenhinh"] . '" alt="">
                                             <h6>' . $row1["TenHH"] . '</h6>
                                         </a>
                                     </td>
-                                    <td>$' . number_format($row1["Gia"], 3, ',', ' ') . '</td>
-                                    <td>2' . $row1["SoLuong"] . '</td>
-                                    <td>$' . $row1["GiaDatHang"] . '</td>
+                                    <td>' . number_format($row1["Gia"], 0, ',', ',') . ' VND</td>
+                                    <td>' . $row1["SoLuong"] . '</td>
+                                    <td>' . number_format($row1["GiaDatHang"], 0, ',', ',') . ' VND</td>
                                 </tr>';
                                 $total += $row1["GiaDatHang"];
                             }
@@ -117,7 +117,7 @@
                         </tbody>
                     </table>
                 </div>
-                <h3 class="float-right">Total: <?=$total?></h3>
+                <h3 class="float-right">Tổng cộng: <?=number_format($total, 0, ',', ',')?> VND</h3>
             </div>        
         </div>
     </div>

@@ -38,7 +38,7 @@
                                  
                                             <input type="hidden" value="addCart" name="action">
                                             <input type="hidden" value="<?=$row['MSHH']?>" name="id">
-                                            <button name="add-to-cart" type="submit">+ Add to cart</button>
+                                            <button name="add-to-cart" type="submit">+ Thêm vào giỏ hàng</button>
                                         </div>
                                 </form>
                             </div>
@@ -88,7 +88,6 @@
                     <?php
                     $sql2 = "SELECT * FROM HANGHOA WHERE MaLoaiHang='" . $loaihang . "' LIMIT 4;";
                     $result2 = mysqli_query($db, $sql2);
-                    $row2 = mysqli_fetch_assoc($result2);
                     while ($row2 = mysqli_fetch_assoc($result2)) {
                         $sql1 = "SELECT * FROM HINHHANGHOA WHERE MSHH='" . $row2["MSHH"] . "';";
                         $result1 = mysqli_query($db, $sql1);

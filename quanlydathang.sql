@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 22, 2021 lúc 10:02 AM
+-- Thời gian đã tạo: Th10 22, 2021 lúc 11:29 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.33
 
@@ -40,13 +40,12 @@ CREATE TABLE `chitietdathang` (
 --
 
 INSERT INTO `chitietdathang` (`SoDonDH`, `MSHH`, `SoLuong`, `GiaDatHang`, `GiamGia`) VALUES
-('DH1KH008', 'KD1', 1, 45000, 0),
-('DH1KH008', 'TD2', 1, 30000, 0),
-('DH1KH010', 'TD1', 2, 30000, 0),
-('DH1KH010', 'TD3', 2, 500000, 0),
-('DH1KH1', 'TD2', 1, 30000, 0),
-('DH1KH1', 'TD3', 1, 259999, 0),
-('DH2KH1', 'TD1', 1, 15000, 0);
+('DH1KH1', 'HH6', 1, 499000, 0),
+('DH1KH1', 'TD1', 1, 249000, 0),
+('DH2KH1', 'HH6', 1, 499000, 0),
+('DH2KH1', 'KD1', 1, 45000, 0),
+('DH3KH1', 'HH6', 2, 998000, 0),
+('DH3KH1', 'KD1', 1, 45000, 0);
 
 -- --------------------------------------------------------
 
@@ -69,18 +68,9 @@ CREATE TABLE `dathang` (
 --
 
 INSERT INTO `dathang` (`SoDonDH`, `MSKH`, `MSNV`, `NgayDH`, `NgayGH`, `TrangThaiDH`, `DiaChi`) VALUES
-('DH10KH1', 'KH1', 'NV001', '2021-10-24', '2021-10-27', 'Da Xac Nhan', 'Vĩnh Long'),
-('DH1KH008', 'KH008', NULL, '2021-11-05', '2021-11-08', 'Chưa xác nhận', 'Vĩnh Long 123'),
-('DH1KH010', 'KH010', NULL, '2021-11-11', '2021-11-14', 'Chưa xác nhận', 'Vĩnh Long 123'),
-('DH1KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Open your list address'),
-('DH2KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long'),
-('DH3KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long'),
-('DH4KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long'),
-('DH5KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long'),
-('DH6KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long'),
-('DH7KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long'),
-('DH8KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long'),
-('DH9KH1', 'KH1', NULL, '2021-10-24', '2021-10-27', 'Chưa xác nhận', 'Vĩnh Long');
+('DH1KH1', 'KH1', NULL, '2021-11-22', '2021-11-25', 'Chưa xác nhận', 'Cần Thơ'),
+('DH2KH1', 'KH1', NULL, '2021-11-22', '2021-11-25', 'Chưa xác nhận', 'Vĩnh Long 123'),
+('DH3KH1', 'KH1', NULL, '2021-11-22', '2021-11-25', 'Chưa xác nhận', 'Vĩnh Long 123');
 
 -- --------------------------------------------------------
 
@@ -134,10 +124,10 @@ CREATE TABLE `hanghoa` (
 --
 
 INSERT INTO `hanghoa` (`MSHH`, `TenHH`, `QuyCach`, `Gia`, `SoLuongHang`, `MaLoaiHang`) VALUES
-('KD1', 'Hàng Hóa 2', 'qweqwrqwtqwtqwqwr', 45000, 24, 'Truyen'),
-('TD1', 'Khí chất của một cô gái', '', 15000, 114, 'Truyen'),
-('TD2', 'Lá thư gửi cho chính mình', '', 30000, 12, 'Truyen'),
-('TD3', 'Mắt biếc', '', 250000, 239, 'Truyen');
+('HH5', 'Quần Jean Ống Suông Vải Selvedge', 'Sự hợp tác của UNIQLO’s Popular với nhà thiết kế huyền thoại Jil Sander tiếp tục hành trình xác định trang phục hiện đại toàn cầu cùng ý nghĩa mà nó mang lại.\r\n- Vải Selvedge có độ co giãn tự nhiên cho cảm giác vừa vặn hoàn hảo.\r\n- Một sản phẩm cần thiết cho tủ quần áo.\r\n- Miếng dán độc quyền có logo + J.\r\n- Các nút, đinh tán và khóa kéo có khắc + J độc đáo.', 149000, 30, 'Quan'),
+('HH6', 'Quần Jeans Ống Suông Cạp Cao Dáng Regular', '- Bộ sưu tập Uniqlo U là sự hiện thực hóa của đội ngũ nhà thiết kế quốc tế tận tâm và lành nghề có trụ sở tại Trung Tâm Nghiên Cứu Và Phát Triển Paris của chúng tôi do Giám đốc Nghệ thuật Christophe Lemaire lãnh đạo.\r\n- Một sản phẩm cổ điển mới từ Uniqlo U.\r\n- Quần jean cạp cao ống đứng với cảm giác chân thực thoải mái của vải denim 100% cotton.', 499000, 40, 'Quan'),
+('KD1', 'FAPAS REVERSE LOGO T-SHIRT', '- Bộ sưu tập Uniqlo U là sự hiện thực hóa của đội ngũ nhà thiết kế quốc tế tận tâm và lành nghề có trụ sở tại Trung tâm Nghiên cứu và Phát triển Paris của chúng tôi do Giám đốc Nghệ thuật Christophe Lemaire lãnh đạo.\r\n- Vải jersey dệt kim mịn.\r\n- Vừa vặn, thoải mái.\r\n- Thiết kế túi trước ngực cổ điển.\r\n- Thiết kế đường viền cổ áo giúp giữ dáng sau khi giặt.\r\n- Họa tiết sọc với màu sắc đặc trưng của Uniqlo U.', 45000, 24, 'AoThun'),
+('TD1', 'Áo Thun Kẻ Sọc Cổ Tròn Ngắn Tay', '- Bộ sưu tập Uniqlo U là sự hiện thực hóa của đội ngũ nhà thiết kế quốc tế tận tâm và lành nghề có trụ sở tại Trung tâm Nghiên cứu và Phát triển Paris của chúng tôi do Giám đốc Nghệ thuật Christophe Lemaire lãnh đạo.\r\n- Vải jersey dệt kim mịn.\r\n- Vừa vặn, thoải mái.\r\n- Thiết kế túi trước ngực cổ điển.\r\n- Thiết kế đường viền cổ áo giúp giữ dáng sau khi giặt.\r\n- Họa tiết sọc với màu sắc đặc trưng của Uniqlo U.', 249000, 30, 'AoThun');
 
 -- --------------------------------------------------------
 
@@ -156,13 +146,14 @@ CREATE TABLE `hinhhanghoa` (
 --
 
 INSERT INTO `hinhhanghoa` (`mahinh`, `tenhinh`, `MSHH`) VALUES
-('KD1category-1.png', 'KD1category-1.png', 'KD1'),
-('KD1category-2.png', 'KD1category-2.png', 'KD1'),
-('KD1logo.png', 'KD1logo.png', 'KD1'),
-('KD1product-1.png', 'KD1product-1.png', 'KD1'),
-('TD1banner-2.png', 'TD1banner-2.png', 'TD1'),
-('TD2product-1.png', 'TD2product-1.png', 'TD2'),
-('TD3banner-1.png', 'TD3banner-1.png', 'TD3');
+('HH5hh-5-01.jpg', 'HH5hh-5-01.jpg', 'HH5'),
+('HH5hh-5-02.jpg', 'HH5hh-5-02.jpg', 'HH5'),
+('HH6hh-6-01.jpg', 'HH6hh-6-01.jpg', 'HH6'),
+('HH6hh-6-02.jpg', 'HH6hh-6-02.jpg', 'HH6'),
+('KD1hh-2-01.jpg', 'KD1hh-2-01.jpg', 'KD1'),
+('KD1hh-2-02.jpg', 'KD1hh-2-02.jpg', 'KD1'),
+('TD1hh-3-01.jpg', 'TD1hh-3-01.jpg', 'TD1'),
+('TD1hh-3-02.jpg', 'TD1hh-3-02.jpg', 'TD1');
 
 -- --------------------------------------------------------
 
@@ -184,14 +175,14 @@ CREATE TABLE `khachhang` (
 --
 
 INSERT INTO `khachhang` (`MSKH`, `HoTenKH`, `TenCongTy`, `SoDienThoai`, `SoFax`, `Pass`) VALUES
-('KH008', 'Phuc Nguyen', 'Amazon', '0843388318', '0847851275', 'nguyen123'),
-('KH010', 'Phuc Nguyen', 'Amazon', '0843388318', '0847851275', '0d1b805b6c8f5c27be2e7eaa61b6f846'),
-('KH1', 'Lê Phúc Nguyên', 'Amazon', '0914764104', '8282824', 'nguyen123'),
-('KH2', 'Nguyễn Tấn Phát', '', '0947487512', '545457', 'phat123'),
-('KH3', 'Vũ Ngọc Long', 'SunLight', '0125462512', '15154512', 'long123'),
-('KH4', 'Nguyễn Trương Mỹ Xuyên', 'SunLight', '0943198820', '4787874', 'xuyen123'),
-('KH5', 'Trần Thị Bé Ba', 'Amazon', '0154451652', '1511514', 'ba123'),
-('KH6', 'baba', 'ádasd', '13124214', '123213', '123123');
+('KH008', 'Phuc Nguyen', 'Amazon', '0843388318', '0847851275', '6e97123d7be0c38c111ff6d7d6b274cd'),
+('KH010', 'Phuc Nguyen', 'Amazon', '0843388318', '0847851275', '81dc9bdb52d04dc20036dbd8313ed055'),
+('KH1', 'Lê Phúc Nguyên', 'Amazon', '0914764104', '8282824', '81dc9bdb52d04dc20036dbd8313ed055'),
+('KH2', 'Nguyễn Tấn Phát', '', '0947487512', '545457', '81dc9bdb52d04dc20036dbd8313ed055'),
+('KH3', 'Vũ Ngọc Long', 'SunLight', '0125462512', '15154512', '81dc9bdb52d04dc20036dbd8313ed055'),
+('KH4', 'Nguyễn Trương Mỹ Xuyên', 'SunLight', '0943198820', '4787874', '81dc9bdb52d04dc20036dbd8313ed055'),
+('KH5', 'Trần Thị Bé Ba', 'Amazon', '0154451652', '1511514', '81dc9bdb52d04dc20036dbd8313ed055'),
+('KH6', 'baba', 'ádasd', '13124214', '123213', '81dc9bdb52d04dc20036dbd8313ed055');
 
 -- --------------------------------------------------------
 
@@ -210,7 +201,7 @@ CREATE TABLE `loaihanghoa` (
 
 INSERT INTO `loaihanghoa` (`MaLoaiHang`, `TenLoaiHang`) VALUES
 ('AoThun', 'Áo Thun'),
-('Truyen', 'Truyện đọc');
+('Quan', 'Quần');
 
 -- --------------------------------------------------------
 
@@ -232,7 +223,7 @@ CREATE TABLE `nhanvien` (
 --
 
 INSERT INTO `nhanvien` (`MSNV`, `HoTenNV`, `ChucVu`, `DiaChi`, `SoDienThoai`, `Pass`) VALUES
-('NV001', 'Trần Đăng Giang Hòa', 'Nhân Viên', 'Tân Hiệp, Kiên Giang', 914764104, '0d1b805b6c8f5c27be2e7eaa61b6f846'),
+('NV001', 'Trần Đăng Giang Hòa', 'Nhân Viên', 'Tân Hiệp, Kiên Giang', 914764104, 'e10adc3949ba59abbe56e057f20f883e'),
 ('NV002', 'Võ Khánh Quí', 'Nhân Viên', 'Ô Môn, Cần Thơ', 945745681, 'e10adc3949ba59abbe56e057f20f883e');
 
 --

@@ -44,7 +44,7 @@ if (isset($_GET["id"]))
                                     if ($row) {
                                         echo ' <tr>
                                     <td class="cart-body__name">
-                                        <a href="product.html">
+                                        <a href="index.php?action=product&id='. $row["MSHH"] .'">
                                             <img src="uploads/' . $row["mahinh"] . '" alt="">
                                             <h6>' . $row["TenHH"] . '</h6>
                                         </a>
